@@ -1,6 +1,9 @@
 <script>
 
+// import components
 import AppCard from './AppCard.vue';
+import SelectType from './SelectType.vue';
+
 //import store
 import { store } from '../store'
 
@@ -8,7 +11,8 @@ export default {
     name: "AppMain",
 
     components: {
-        AppCard
+        AppCard,
+        SelectType
     },
 
     data() {
@@ -23,6 +27,7 @@ export default {
 
 <template>
     <main>
+        <SelectType />
         <div class="main_container">
             <AppCard v-for="card in store.cardList" :info="card" />
         </div>
@@ -36,6 +41,7 @@ main {
     justify-content: center;
     align-items: center;
     padding: 10px;
+    flex-direction: column;
     /* debug */
     // height: 500px;
 }
