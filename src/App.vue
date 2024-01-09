@@ -24,21 +24,38 @@ export default {
   },
 
   methods: {
+
+    // call general api
     getCard() {
       axios
         .get(store.apiURL)
         .then((res => {
-          console.log(res.data.data);
+          console.log(res.data);
           store.cardList = res.data.data
         }))
         .catch((err) => {
           console.log("Errors", err);
         })
+    },
+
+    // call api for archetype
+    getArchetype() {
+      axios
+        .get(store.apiArchetype)
+        .then((res => {
+          console.log(res.data);
+          store.apiArchetype = res.data
+        }))
+        .catch((err) => {
+          console.log("Errors", err);
+        })
     }
+
   },
 
   created() {
-    this.getCard()
+    this.getCard(),
+      this.getArchetype()
   }
 
 }
