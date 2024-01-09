@@ -1,16 +1,21 @@
 <script>
 
 export default {
-    name: "AppCard"
+    name: "AppCard",
+
+    props: {
+        info: Object,
+    },
+
 }
 
 </script>
 
 <template>
     <div class="card">
-        <h1>Img</h1>
-        <h2>Name</h2>
-        <h3>Type</h3>
+        <img :src="info.card_images[0].image_url" :alt="info.name">
+        <h2>{{ info.name }}</h2>
+        <span>Alien</span>
     </div>
 </template>
 
@@ -21,7 +26,17 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     // debug
-    height: 100px;
+    // height: 100px;
+}
+
+h2 {
+    color: white;
+    margin-bottom: 5px;
+}
+
+img {
+    width: 100%;
 }
 </style>
