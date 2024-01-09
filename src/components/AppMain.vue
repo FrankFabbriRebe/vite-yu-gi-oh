@@ -24,7 +24,7 @@ export default {
 <template>
     <main>
         <div class="main_container">
-            <AppCard />
+            <AppCard v-for="card in store.cardList" :info="card" />
         </div>
     </main>
 </template>
@@ -35,8 +35,9 @@ main {
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 10px;
     /* debug */
-    height: 500px;
+    // height: 500px;
 }
 
 .main_container {
@@ -47,6 +48,6 @@ main {
     gap: 10px;
     padding: 10px;
     /*  dedbug */
-    height: 400px;
+    // height: 400px;
 }
 </style>
