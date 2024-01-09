@@ -29,6 +29,7 @@ export default {
         .get(store.apiURL)
         .then((res => {
           console.log(res.data.data);
+          store.cardList = res.data.data
         }))
         .catch((err) => {
           console.log("Errors", err);
