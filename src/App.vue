@@ -30,7 +30,7 @@ export default {
       axios
         .get(store.apiURL)
         .then((res => {
-          console.log(res.data);
+          // console.log(res.data);
           store.cardList = res.data.data
         }))
         .catch((err) => {
@@ -43,7 +43,7 @@ export default {
       axios
         .get(store.apiArchetype)
         .then((res => {
-          console.log(res.data);
+          // console.log(res.data);
           store.apiArchetype = res.data
         }))
         .catch((err) => {

@@ -22,6 +22,7 @@ export default {
     },
 
 }
+// console.log(store.cardList);
 
 </script>
 
