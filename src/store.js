@@ -7,5 +7,6 @@ export const store = reactive({
     // array from where selct the type
     apiArchetyperchetype: [],
     apiArchetype: "https://db.ygoprodeck.com/api/v7/archetypes.php",
+    archetypeSelected: "",
 
 })
