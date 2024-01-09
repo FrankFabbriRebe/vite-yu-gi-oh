@@ -24,7 +24,8 @@ export default {
             Select archetype
         </button>
         <ul class="dropdown-menu">
-            <li v-for="element in store.archetype"><a class="dropdown-item" href="#">Action</a></li>
+            <li v-for="element in store.apiArchetype"><a class="dropdown-item" href="#">{{ element.archetype_name }}</a>
+            </li>
         </ul>
     </div>
 </template>
