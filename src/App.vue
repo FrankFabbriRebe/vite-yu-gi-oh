@@ -1,13 +1,45 @@
 <script>
 
+// import axios
+import axios from 'axios';
+
+//import components
 import AppHeader from './components/AppHeader.vue';
 import AppMain from './components/AppMain.vue';
 
+//import store
+import { store } from './store'
+
 export default {
+
   components: {
     AppHeader,
     AppMain,
+  },
+
+  data() {
+    return {
+      store,
+    }
+  },
+
+  methods: {
+    getCard() {
+      axios
+        .get(store.apiURL)
+        .then((res => {
+          console.log(res.data.data);
+        }))
+        .catch((err) => {
+          console.log("Errors", err);
+        })
+    }
+  },
+
+  created() {
+    this.getCard()
   }
+
 }
 
 </script>
@@ -15,7 +47,6 @@ export default {
 <template>
   <AppHeader />
   <AppMain />
-  <AppCard />
 </template>
 
 <style lang="scss">
