@@ -1,13 +1,22 @@
 <script>
 
-import AppCard from './AppCard.vue'
+import AppCard from './AppCard.vue';
+//import store
+import { store } from '../store'
 
 export default {
     name: "AppMain",
 
     components: {
         AppCard
-    }
+    },
+
+    data() {
+        return {
+            store,
+        }
+    },
+
 }
 
 </script>
@@ -27,19 +36,17 @@ main {
     justify-content: center;
     align-items: center;
     /* debug */
-    // height: 500px;
+    height: 500px;
 }
 
 .main_container {
     width: 90%;
-    margin-top: 50px;
     background-color: white;
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    justify-content: center;
     padding: 10px;
     /*  dedbug */
-    // height: 200px;
+    height: 400px;
 }
 </style>
