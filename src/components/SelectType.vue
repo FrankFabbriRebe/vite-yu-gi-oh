@@ -12,28 +12,19 @@ export default {
         }
     },
 
-    methods: {
-        search(element) {
-            this.store.archetypeSelected = element.archetype_name,
-                console.log(this.store.archetypeSelected);
-        }
-    }
-
 }
 </script>
 
 <template>
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Select archetype
-        </button>
-        <ul class="dropdown-menu">
-            <li v-for="element in store.archetypeArray" @click="search(element); $emit('search')">
-                <a class="dropdown-item" href="#">
-                    {{ element.archetype_name }}
-                </a>
-            </li>
-        </ul>
+    <!-- Dropdown Button -->
+    <div class="dropdown pt-4">
+        <select class="form-select" aria-label="Default select example" v-model="store.archetypeSelected"
+            @change="$emit('filter')">
+            <option value="" disabled selected>Choose Archetype</option>
+            <option v-for="archetype in store.archetypeArray" :value="archetype.archetype_name">
+                {{ archetype.archetype_name }}
+            </option>
+        </select>
     </div>
 </template>
 
