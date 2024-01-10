@@ -28,8 +28,10 @@ export default {
             Select archetype
         </button>
         <ul class="dropdown-menu">
-            <li v-for="element in store.apiArchetype" @click="search(element)"><a class="dropdown-item" href="#">{{
-                element.archetype_name }}</a>
+            <li v-for="element in store.archetypeArray" @click="search(element); $emit('search')">
+                <a class="dropdown-item" href="#">
+                    {{ element.archetype_name }}
+                </a>
             </li>
         </ul>
     </div>
