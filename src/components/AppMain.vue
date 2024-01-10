@@ -28,8 +28,15 @@ export default {
 
         // call general api
         getCard() {
+
+            let filteredUrl = store.apiURL;
+
+            if (store.archetypeSelected) {
+                filteredUrl += `&archetype=${store.searchArchetype}`
+            }
+
             axios
-                .get(store.apiURL)
+                .get(filteredUrl)
                 .then((res => {
                     // console.log(res.data);
                     store.cardList = res.data.data
@@ -60,13 +67,13 @@ export default {
     }
 
 }
-// console.log(store.cardList);
+
 
 </script>
 
 <template>
     <main>
-        <SelectType @search="getCard" />
+        <SelectType @filter="getCard" />
         <div class="main_container">
             <AppCard v-for="card in store.cardList" :info="card" />
         </div>
