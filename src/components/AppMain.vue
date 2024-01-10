@@ -5,7 +5,10 @@ import AppCard from './AppCard.vue';
 import SelectType from './SelectType.vue';
 
 //import store
-import { store } from '../store'
+import { store } from '../store';
+
+// import axios
+import axios from 'axios';
 
 export default {
     name: "AppMain",
@@ -21,6 +24,41 @@ export default {
         }
     },
 
+    methods: {
+
+        // call general api
+        getCard() {
+            axios
+                .get(store.apiURL)
+                .then((res => {
+                    // console.log(res.data);
+                    store.cardList = res.data.data
+                }))
+                .catch((err) => {
+                    console.log("Errors", err);
+                })
+        },
+
+        // call api for archetype
+        getArchetype() {
+            axios
+                .get(store.apiArchetype)
+                .then((res => {
+                    // console.log(res.data);
+                    store.archetypeArray = res.data
+                }))
+                .catch((err) => {
+                    console.log("Errors", err);
+                })
+        }
+
+    },
+
+    created() {
+        this.getCard();
+        this.getArchetype()
+    }
+
 }
 // console.log(store.cardList);
 
@@ -28,7 +66,7 @@ export default {
 
 <template>
     <main>
-        <SelectType />
+        <SelectType @search="getCard" />
         <div class="main_container">
             <AppCard v-for="card in store.cardList" :info="card" />
         </div>
